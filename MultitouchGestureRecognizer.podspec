@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.source                  = { :git => "https://github.com/dclelland/MultitouchGestureRecognizer.git", :tag => "0.1.0" }
   s.platform                = :ios, '8.0'
   s.ios.deployment_target   = '8.0'
-  s.ios.source_files        = '**/*.swift'
+  s.ios.source_files        = 'MultitouchGestureRecognizer.swift'
   s.requires_arc            = true
 end
