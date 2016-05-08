@@ -11,8 +11,6 @@ import UIKit.UIGestureRecognizerSubclass
 
 @objc public protocol MultitouchGestureRecognizerDelegate: UIGestureRecognizerDelegate {
     
-    optional func multitouchGestureRecognizerShouldSustainTouches(gestureRecognizer: MultitouchGestureRecognizer) -> Bool
-    
     optional func multitouchGestureRecognizer(gestureRecognizer: MultitouchGestureRecognizer, touchDidBegin touch: UITouch)
     optional func multitouchGestureRecognizer(gestureRecognizer: MultitouchGestureRecognizer, touchDidMove touch: UITouch)
     optional func multitouchGestureRecognizer(gestureRecognizer: MultitouchGestureRecognizer, touchDidCancel touch: UITouch)
@@ -21,6 +19,14 @@ import UIKit.UIGestureRecognizerSubclass
 }
 
 public class MultitouchGestureRecognizer: UIPanGestureRecognizer {
+    
+    @IBInspectable public var sustain: Bool = true {
+        didSet {
+            if (oldValue == true && sustain == false) {
+                endTouches()
+            }
+        }
+    }
     
     public lazy var touches = [UITouch]()
     
@@ -42,7 +48,7 @@ public class MultitouchGestureRecognizer: UIPanGestureRecognizer {
     
     public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent) {
         super.touchesBegan(touches, withEvent: event)
-        if (shouldSustainTouches()) {
+        if (sustain) {
             endTouches()
         }
         updateTouches(touches)
@@ -63,13 +69,6 @@ public class MultitouchGestureRecognizer: UIPanGestureRecognizer {
         updateTouches(touches)
     }
     
-    public override func reset() {
-        super.reset()
-        if (!shouldSustainTouches()) {
-            endTouches()
-        }
-    }
-    
     // MARK: - Multiple touches
     
     private func updateTouches(touches: Set<UITouch>) {
@@ -83,7 +82,7 @@ public class MultitouchGestureRecognizer: UIPanGestureRecognizer {
                 moveTouch(touch)
             case .Cancelled:
                 cancelTouch(touch)
-            case .Ended where shouldSustainTouches():
+            case .Ended where sustain:
                 moveTouch(touch)
             case .Ended:
                 endTouch(touch)
@@ -130,10 +129,6 @@ public class MultitouchGestureRecognizer: UIPanGestureRecognizer {
         }
         
         return nil
-    }
-    
-    private func shouldSustainTouches() -> Bool {
-        return multitouchDelegate()?.multitouchGestureRecognizerShouldSustainTouches?(self) == true
     }
     
 }
