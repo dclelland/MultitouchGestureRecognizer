@@ -9,17 +9,28 @@
 import UIKit
 import UIKit.UIGestureRecognizerSubclass
 
+/// Extension of `UIGestureRecognizerDelegate` which allows the delegate to receive messages relating to individual touches. The `delegate` property can be set to a class implementing `MultitouchGestureRecognizerDelegate` and it will receive these messages.
 @objc public protocol MultitouchGestureRecognizerDelegate: UIGestureRecognizerDelegate {
     
+    /// Called when a touch is started.
     optional func multitouchGestureRecognizer(gestureRecognizer: MultitouchGestureRecognizer, touchDidBegin touch: UITouch)
+    
+    /// Called when a touch is updates.
     optional func multitouchGestureRecognizer(gestureRecognizer: MultitouchGestureRecognizer, touchDidMove touch: UITouch)
+    
+    /// Called when a touch is cancelled.
     optional func multitouchGestureRecognizer(gestureRecognizer: MultitouchGestureRecognizer, touchDidCancel touch: UITouch)
+    
+    /// Called when a touch is ended.
     optional func multitouchGestureRecognizer(gestureRecognizer: MultitouchGestureRecognizer, touchDidEnd touch: UITouch)
     
 }
 
-public class MultitouchGestureRecognizer: UIPanGestureRecognizer {
+/// `UIPanGestureRecognizer` subclass which tracks the state of individual touches.
+public class MultitouchGestureRecognizer: UIGestureRecognizer {
     
+    /// If `sustain` is set to `true`, when touches end they will be retained in `touches` until such time as all touches have ended and a new touch begins.
+    /// If `sustain` is switched from `true` to `false`, any currently sustained touches will be ended immediately.
     @IBInspectable public var sustain: Bool = true {
         didSet {
             if (oldValue == true && sustain == false) {
@@ -28,15 +39,24 @@ public class MultitouchGestureRecognizer: UIPanGestureRecognizer {
         }
     }
     
+    /// The currently tracked collection of touches. May contain touches after they have ended, if `sustain` is set to `true`.
     public lazy var touches = [UITouch]()
     
+    /// The current gesture recognizer state, as it pertains to the `sustain` setting.
     public enum State {
+        
+        /// The gesture recognizer is not tracking any touches.
         case Ready
+        
+        /// The gesture recognizer is currently tracking one or more touches.
         case Live
+        
+        /// The gesture recognizer is not currently tracking any touches, but thanks to the `sustain` setting, it is retaining the last few touches in the `touches` collection.
         case Sustained
     }
     
-    public var touchState: State {
+    /// The current multitouch gesture recognizer state.
+    public var multitouchState: State {
         if touches.count == 0 {
             return .Ready
         } else if numberOfTouches() > 0 {
@@ -45,6 +65,14 @@ public class MultitouchGestureRecognizer: UIPanGestureRecognizer {
             return .Sustained
         }
     }
+    
+    // MARK: - Delegate
+    
+    internal var multitouchDelegate: MultitouchGestureRecognizerDelegate? {
+        return delegate as? MultitouchGestureRecognizerDelegate
+    }
+    
+    // MARK: - Overrides
     
     public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent) {
         super.touchesBegan(touches, withEvent: event)
@@ -100,35 +128,25 @@ public class MultitouchGestureRecognizer: UIPanGestureRecognizer {
     
     private func startTouch(touch: UITouch) {
         touches.append(touch)
-        multitouchDelegate()?.multitouchGestureRecognizer?(self, touchDidBegin: touch)
+        multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidBegin: touch)
     }
     
     private func moveTouch(touch: UITouch) {
-        multitouchDelegate()?.multitouchGestureRecognizer?(self, touchDidMove: touch)
+        multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidMove: touch)
     }
     
     private func cancelTouch(touch: UITouch) {
         if let index = touches.indexOf(touch) {
             touches.removeAtIndex(index)
-            multitouchDelegate()?.multitouchGestureRecognizer?(self, touchDidCancel: touch)
+            multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidCancel: touch)
         }
     }
     
     private func endTouch(touch: UITouch) {
         if let index = touches.indexOf(touch) {
             touches.removeAtIndex(index)
-            multitouchDelegate()?.multitouchGestureRecognizer?(self, touchDidEnd: touch)
+            multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidEnd: touch)
         }
-    }
-    
-    // MARK: - Delegate
-    
-    private func multitouchDelegate() -> MultitouchGestureRecognizerDelegate? {
-        if let multitouchDelegate = delegate as? MultitouchGestureRecognizerDelegate {
-            return multitouchDelegate
-        }
-        
-        return nil
     }
     
 }
