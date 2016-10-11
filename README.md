@@ -5,7 +5,7 @@ MultitouchGestureRecognizer is a UIGestureRecognizer subclass providing a richer
 #### Installation:
 
 ```ruby
-pod 'MultitouchGestureRecognizer', '~> 0.1'
+pod 'MultitouchGestureRecognizer', '~> 1.0'
 ```
 
 #### Usage:
@@ -21,19 +21,19 @@ view.addGestureRecognizer(gestureRecognizer)
 ✓ Delegate protocol methods for individual touches:
 
 ```swift
-func multitouchGestureRecognizer(gestureRecognizer: MultitouchGestureRecognizer, touchDidBegin touch: UITouch) {
+func multitouchGestureRecognizer(_ gestureRecognizer: MultitouchGestureRecognizer, touchDidBegin touch: UITouch) {
     print("Touch started")
 }
 
-func multitouchGestureRecognizer(gestureRecognizer: MultitouchGestureRecognizer, touchDidMove touch: UITouch) {
+func multitouchGestureRecognizer(_ gestureRecognizer: MultitouchGestureRecognizer, touchDidMove touch: UITouch) {
     print("Touch updated")
 }
 
-func multitouchGestureRecognizer(gestureRecognizer: MultitouchGestureRecognizer, touchDidCancel touch: UITouch) {
+func multitouchGestureRecognizer(_ gestureRecognizer: MultitouchGestureRecognizer, touchDidCancel touch: UITouch) {
     print("Touch cancelled")
 }
 
-func multitouchGestureRecognizer(gestureRecognizer: MultitouchGestureRecognizer, touchDidEnd touch: UITouch) {
+func multitouchGestureRecognizer(_ gestureRecognizer: MultitouchGestureRecognizer, touchDidEnd touch: UITouch) {
     print("Touch finished")
 }
 ```
@@ -47,7 +47,7 @@ gestureRecognizer.sustain = true
 ✓ Keeps track of the gesture's state and touches:
 
 ```swift
-if (gestureRecognizer.multitouchState == .Live) {
+if (gestureRecognizer.multitouchState == .live) {
     print("Gesture recognizer is currently receiving touches:", gestureRecognizer.touches)
 }
 ```

@@ -13,28 +13,28 @@ import UIKit.UIGestureRecognizerSubclass
 @objc public protocol MultitouchGestureRecognizerDelegate: UIGestureRecognizerDelegate {
     
     /// Called when a touch is started.
-    optional func multitouchGestureRecognizer(gestureRecognizer: MultitouchGestureRecognizer, touchDidBegin touch: UITouch)
+    @objc optional func multitouchGestureRecognizer(_ gestureRecognizer: MultitouchGestureRecognizer, touchDidBegin touch: UITouch)
     
     /// Called when a touch is updates.
-    optional func multitouchGestureRecognizer(gestureRecognizer: MultitouchGestureRecognizer, touchDidMove touch: UITouch)
+    @objc optional func multitouchGestureRecognizer(_ gestureRecognizer: MultitouchGestureRecognizer, touchDidMove touch: UITouch)
     
     /// Called when a touch is cancelled.
-    optional func multitouchGestureRecognizer(gestureRecognizer: MultitouchGestureRecognizer, touchDidCancel touch: UITouch)
+    @objc optional func multitouchGestureRecognizer(_ gestureRecognizer: MultitouchGestureRecognizer, touchDidCancel touch: UITouch)
     
     /// Called when a touch is ended.
-    optional func multitouchGestureRecognizer(gestureRecognizer: MultitouchGestureRecognizer, touchDidEnd touch: UITouch)
+    @objc optional func multitouchGestureRecognizer(_ gestureRecognizer: MultitouchGestureRecognizer, touchDidEnd touch: UITouch)
     
 }
 
 /// `UIPanGestureRecognizer` subclass which tracks the state of individual touches.
-public class MultitouchGestureRecognizer: UIGestureRecognizer {
+open class MultitouchGestureRecognizer: UIGestureRecognizer {
     
     /// If `sustain` is set to `true`, when touches end they will be retained in `touches` until such time as all touches have ended and a new touch begins.
     /// If `sustain` is switched from `true` to `false`, any currently sustained touches will be ended immediately.
     @IBInspectable public var sustain: Bool = true {
         didSet {
             if (oldValue == true && sustain == false) {
-                endTouches()
+                end()
             }
         }
     }
@@ -46,23 +46,23 @@ public class MultitouchGestureRecognizer: UIGestureRecognizer {
     public enum State {
         
         /// All touches are ended, and none are being sustained.
-        case Ready
+        case ready
         
         /// One more more touches are currently in progress.
-        case Live
+        case live
         
         /// All touches have ended, but one or more is being retained in the `touches` collection thanks to the `sustain` setting.
-        case Sustained
+        case sustained
     }
     
     /// The current multitouch gesture recognizer state.
     public var multitouchState: State {
         if touches.count == 0 {
-            return .Ready
-        } else if touches.filter({ $0.phase != .Ended }).count > 0 {
-            return .Live
+            return .ready
+        } else if touches.filter({ $0.phase != .ended }).count > 0 {
+            return .live
         } else {
-            return .Sustained
+            return .sustained
         }
     }
     
@@ -74,77 +74,77 @@ public class MultitouchGestureRecognizer: UIGestureRecognizer {
     
     // MARK: - Overrides
     
-    public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesBegan(touches, withEvent: event)
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesBegan(touches, with: event)
         if (sustain) {
-            endTouches()
+            end()
         }
-        updateTouches(touches)
+        update(touches)
     }
     
-    public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesMoved(touches, withEvent: event)
-        updateTouches(touches)
+    open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesMoved(touches, with: event)
+        update(touches)
     }
     
-    public override func touchesCancelled(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesCancelled(touches, withEvent: event)
-        updateTouches(touches)
+    open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesCancelled(touches, with: event)
+        update(touches)
     }
     
-    public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesEnded(touches, withEvent: event)
-        updateTouches(touches)
+    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesEnded(touches, with: event)
+        update(touches)
     }
     
     // MARK: - Multiple touches
     
-    private func updateTouches(touches: Set<UITouch>) {
+    private func update(_ touches: Set<UITouch>) {
         for touch in touches {
             switch touch.phase {
-            case .Began:
-                startTouch(touch)
-            case .Moved:
-                moveTouch(touch)
-            case .Stationary:
-                moveTouch(touch)
-            case .Cancelled:
-                cancelTouch(touch)
-            case .Ended where sustain:
-                moveTouch(touch)
-            case .Ended:
-                endTouch(touch)
+            case .began:
+                start(touch)
+            case .moved:
+                move(touch)
+            case .stationary:
+                move(touch)
+            case .cancelled:
+                cancel(touch)
+            case .ended where sustain:
+                move(touch)
+            case .ended:
+                end(touch)
             }
         }
     }
     
-    private func endTouches() {
-        for touch in touches where touch.phase == .Ended {
-            endTouch(touch)
+    private func end() {
+        for touch in touches where touch.phase == .ended {
+            end(touch)
         }
     }
     
     // MARK: - Single touches
     
-    private func startTouch(touch: UITouch) {
+    private func start(_ touch: UITouch) {
         touches.append(touch)
         multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidBegin: touch)
     }
     
-    private func moveTouch(touch: UITouch) {
+    private func move(_ touch: UITouch) {
         multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidMove: touch)
     }
     
-    private func cancelTouch(touch: UITouch) {
-        if let index = touches.indexOf(touch) {
-            touches.removeAtIndex(index)
+    private func cancel(_ touch: UITouch) {
+        if let index = touches.index(of: touch) {
+            touches.remove(at: index)
             multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidCancel: touch)
         }
     }
     
-    private func endTouch(touch: UITouch) {
-        if let index = touches.indexOf(touch) {
-            touches.removeAtIndex(index)
+    private func end(_ touch: UITouch) {
+        if let index = touches.index(of: touch) {
+            touches.remove(at: index)
             multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidEnd: touch)
         }
     }
