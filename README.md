@@ -55,7 +55,7 @@ if (gestureRecognizer.multitouchState == .live) {
 ✓ Centroid helper
 
 ```swift
-print("multitouchGestureRecognizer.centroid") // Prints the average of all touches
+print(multitouchGestureRecognizer.centroid) // Prints the average of all touches
 ```
 
 ### Todo:
