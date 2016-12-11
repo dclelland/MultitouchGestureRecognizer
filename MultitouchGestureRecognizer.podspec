@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name                    = "MultitouchGestureRecognizer"
-  s.version                 = "1.1.0"
+  s.version                 = "2.0.0"
   s.summary                 = "MultitouchGestureRecognizer is a UIGestureRecognizer subclass providing a richer API for working with multiple touches."
   s.homepage                = "https://github.com/dclelland/MultitouchGestureRecognizer"
   s.license                 = { :type => 'MIT' }
