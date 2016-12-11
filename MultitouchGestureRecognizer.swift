@@ -43,9 +43,23 @@ open class MultitouchGestureRecognizer: UIGestureRecognizer {
     public var mode: Mode = .stack
     
     /// The maximum number of touches allowed in the stack/queue. Defaults to `0`, signifying unlimited touches.
+    /// If `count` is decreased past the current number of touches, any excess touches will be ended immediately.
     public var count: Int = 0 {
         didSet {
-            // TODO: Remove extra touches if the size decreases
+            if count != 0 {
+                while count < touches.count {
+                    switch mode {
+                    case .stack:
+                        if let lastTouch = touches.last {
+                            end(lastTouch)
+                        }
+                    case .queue:
+                        if let firstTouch = touches.first {
+                            end(firstTouch)
+                        }
+                    }
+                }
+            }
         }
     }
     
@@ -97,11 +111,6 @@ open class MultitouchGestureRecognizer: UIGestureRecognizer {
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
         super.touchesBegan(touches, with: event)
         
-        state = .began
-        guard state == .began else {
-            return
-        }
-        
         if (sustain) {
             end()
         }
@@ -111,23 +120,17 @@ open class MultitouchGestureRecognizer: UIGestureRecognizer {
     open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent) {
         super.touchesMoved(touches, with: event)
         
-        state = .changed
-        
         update(touches)
     }
     
     open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent) {
         super.touchesCancelled(touches, with: event)
         
-        state = .cancelled
-        
         update(touches)
     }
     
     open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) {
         super.touchesEnded(touches, with: event)
-        
-        state = .ended
         
         update(touches)
     }
@@ -162,8 +165,7 @@ open class MultitouchGestureRecognizer: UIGestureRecognizer {
     // MARK: - Single touches
     
     private func start(_ touch: UITouch) {
-        // TODO: Break this out into a method
-        guard touches.count < count || count == 0 else {
+        guard count == 0 || count > touches.count else {
             if let firstTouch = touches.first, mode == .queue {
                 end(firstTouch)
                 start(touch)
@@ -176,8 +178,6 @@ open class MultitouchGestureRecognizer: UIGestureRecognizer {
     }
     
     private func move(_ touch: UITouch) {
-        // TODO: Something here
-        
         multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidMove: touch)
     }
     
@@ -236,14 +236,6 @@ extension MultitouchGestureRecognizer {
 }
 
 // MARK: - Private extensions
-
-extension NSObject {
-    
-    var identifier: String {
-        return ObjectIdentifier(self).debugDescription
-    }
-    
-}
 
 extension Array where Element: Equatable {
     
