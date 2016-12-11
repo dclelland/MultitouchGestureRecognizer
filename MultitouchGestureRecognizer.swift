@@ -245,10 +245,6 @@ extension MultitouchGestureRecognizer {
 
 extension Array where Element: Equatable {
     
-    func removing(_ element: Element) -> Array<Element> {
-        return filter { $0 != element }
-    }
-    
     mutating func remove(_ element: Element) {
         self = filter { $0 != element }
     }
