@@ -33,7 +33,8 @@ import MultitouchGestureRecognizer
     
     override func draw(_ rect: CGRect) {
         if let context = UIGraphicsGetCurrentContext() {
-            context.clear(rect)
+            context.setFillColor(UIColor.darkGray.cgColor)
+            context.fill(rect)
             
             if let multitouchGestureRecognizer = multitouchGestureRecognizer {
                 draw(multitouchGestureRecognizer: multitouchGestureRecognizer, in: context)
