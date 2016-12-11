@@ -1,0 +1,16 @@
+PODS:
+  - MultitouchGestureRecognizer (1.1.0)
+
+DEPENDENCIES:
+  - MultitouchGestureRecognizer (from `..`)
+
+EXTERNAL SOURCES:
+  MultitouchGestureRecognizer:
+    :path: ..
+
+SPEC CHECKSUMS:
+  MultitouchGestureRecognizer: a89cc07522cb1956e433936b176717cef6bf6d6b
+
+PODFILE CHECKSUM: e1da7a4258522e3997bb19648c1fc7bd378e80dc
+
+COCOAPODS: 1.1.1

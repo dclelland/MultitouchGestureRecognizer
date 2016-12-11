@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		65FAFC151DFCEB08004AB149 /* MultitouchAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FAFC0E1DFCEB08004AB149 /* MultitouchAppDelegate.swift */; };
+		65FAFC161DFCEB08004AB149 /* Multitouch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FAFC0F1DFCEB08004AB149 /* Multitouch.storyboard */; };
+		65FAFC171DFCEB08004AB149 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65FAFC111DFCEB08004AB149 /* Assets.xcassets */; };
+		65FAFC191DFCEB08004AB149 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FAFC131DFCEB08004AB149 /* LaunchScreen.storyboard */; };
+		65FAFC1A1DFCEB08004AB149 /* MultitouchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FAFC141DFCEB08004AB149 /* MultitouchViewController.swift */; };
+		CB42C0D5F343C2BF3E151B1A /* Pods_Multitouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB09DB4123CF76B91BA6FD3 /* Pods_Multitouch.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		03A6802C00BC1DFF21125B58 /* Pods-Multitouch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Multitouch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Multitouch/Pods-Multitouch.release.xcconfig"; sourceTree = "<group>"; };
+		65FAFBF91DFCEA97004AB149 /* Multitouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Multitouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65FAFC0E1DFCEB08004AB149 /* MultitouchAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultitouchAppDelegate.swift; sourceTree = "<group>"; };
+		65FAFC0F1DFCEB08004AB149 /* Multitouch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Multitouch.storyboard; sourceTree = "<group>"; };
+		65FAFC111DFCEB08004AB149 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65FAFC121DFCEB08004AB149 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65FAFC131DFCEB08004AB149 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		65FAFC141DFCEB08004AB149 /* MultitouchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultitouchViewController.swift; sourceTree = "<group>"; };
+		8AB09DB4123CF76B91BA6FD3 /* Pods_Multitouch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Multitouch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8361E23E8E065AE36E64769 /* Pods-Multitouch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Multitouch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Multitouch/Pods-Multitouch.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65FAFBF61DFCEA97004AB149 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB42C0D5F343C2BF3E151B1A /* Pods_Multitouch.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65FAFBF01DFCEA97004AB149 = {
+			isa = PBXGroup;
+			children = (
+				65FAFBFB1DFCEA97004AB149 /* Multitouch */,
+				65FAFBFA1DFCEA97004AB149 /* Products */,
+				702458FE2390AD0FEB567072 /* Pods */,
+				A4BC094511B3DB7286E81942 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		65FAFBFA1DFCEA97004AB149 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65FAFBF91DFCEA97004AB149 /* Multitouch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65FAFBFB1DFCEA97004AB149 /* Multitouch */ = {
+			isa = PBXGroup;
+			children = (
+				65FAFC0F1DFCEB08004AB149 /* Multitouch.storyboard */,
+				65FAFC0E1DFCEB08004AB149 /* MultitouchAppDelegate.swift */,
+				65FAFC141DFCEB08004AB149 /* MultitouchViewController.swift */,
+				65FAFC101DFCEB08004AB149 /* Resources */,
+			);
+			path = Multitouch;
+			sourceTree = "<group>";
+		};
+		65FAFC101DFCEB08004AB149 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				65FAFC111DFCEB08004AB149 /* Assets.xcassets */,
+				65FAFC121DFCEB08004AB149 /* Info.plist */,
+				65FAFC131DFCEB08004AB149 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		702458FE2390AD0FEB567072 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C8361E23E8E065AE36E64769 /* Pods-Multitouch.debug.xcconfig */,
+				03A6802C00BC1DFF21125B58 /* Pods-Multitouch.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A4BC094511B3DB7286E81942 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8AB09DB4123CF76B91BA6FD3 /* Pods_Multitouch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		65FAFBF81DFCEA97004AB149 /* Multitouch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65FAFC0B1DFCEA97004AB149 /* Build configuration list for PBXNativeTarget "Multitouch" */;
+			buildPhases = (
+				161CF844E0BE35FE5ADF4E4E /* [CP] Check Pods Manifest.lock */,
+				65FAFBF51DFCEA97004AB149 /* Sources */,
+				65FAFBF61DFCEA97004AB149 /* Frameworks */,
+				65FAFBF71DFCEA97004AB149 /* Resources */,
+				905A5E28B19D35CC51AE5935 /* [CP] Embed Pods Frameworks */,
+				BF9F60678043CC57ADC7DFBB /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Multitouch;
+			productName = Multitouch;
+			productReference = 65FAFBF91DFCEA97004AB149 /* Multitouch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		65FAFBF11DFCEA97004AB149 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Daniel Clelland";
+				TargetAttributes = {
+					65FAFBF81DFCEA97004AB149 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = SP382Y6YUY;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 65FAFBF41DFCEA97004AB149 /* Build configuration list for PBXProject "Multitouch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 65FAFBF01DFCEA97004AB149;
+			productRefGroup = 65FAFBFA1DFCEA97004AB149 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65FAFBF81DFCEA97004AB149 /* Multitouch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		65FAFBF71DFCEA97004AB149 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65FAFC171DFCEB08004AB149 /* Assets.xcassets in Resources */,
+				65FAFC191DFCEB08004AB149 /* LaunchScreen.storyboard in Resources */,
+				65FAFC161DFCEB08004AB149 /* Multitouch.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		161CF844E0BE35FE5ADF4E4E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		905A5E28B19D35CC51AE5935 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Multitouch/Pods-Multitouch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF9F60678043CC57ADC7DFBB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Multitouch/Pods-Multitouch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65FAFBF51DFCEA97004AB149 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65FAFC1A1DFCEB08004AB149 /* MultitouchViewController.swift in Sources */,
+				65FAFC151DFCEB08004AB149 /* MultitouchAppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		65FAFC091DFCEA97004AB149 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		65FAFC0A1DFCEA97004AB149 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		65FAFC0C1DFCEA97004AB149 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8361E23E8E065AE36E64769 /* Pods-Multitouch.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = SP382Y6YUY;
+				INFOPLIST_FILE = Multitouch/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.protonome.Multitouch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		65FAFC0D1DFCEA97004AB149 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03A6802C00BC1DFF21125B58 /* Pods-Multitouch.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = SP382Y6YUY;
+				INFOPLIST_FILE = Multitouch/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.protonome.Multitouch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65FAFBF41DFCEA97004AB149 /* Build configuration list for PBXProject "Multitouch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65FAFC091DFCEA97004AB149 /* Debug */,
+				65FAFC0A1DFCEA97004AB149 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65FAFC0B1DFCEA97004AB149 /* Build configuration list for PBXNativeTarget "Multitouch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65FAFC0C1DFCEA97004AB149 /* Debug */,
+				65FAFC0D1DFCEA97004AB149 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 65FAFBF11DFCEA97004AB149 /* Project object */;
+}
