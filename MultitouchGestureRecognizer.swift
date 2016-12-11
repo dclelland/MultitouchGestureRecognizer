@@ -178,17 +178,23 @@ open class MultitouchGestureRecognizer: UIGestureRecognizer {
     }
     
     private func move(_ touch: UITouch) {
-        multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidMove: touch)
+        if touches.contains(touch) {
+            multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidMove: touch)
+        }
     }
     
     private func cancel(_ touch: UITouch) {
-        touches.remove(touch)
-        multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidCancel: touch)
+        if touches.contains(touch) {
+            touches.remove(touch)
+            multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidCancel: touch)
+        }
     }
     
     private func end(_ touch: UITouch) {
-        touches.remove(touch)
-        multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidEnd: touch)
+        if touches.contains(touch) {
+            touches.remove(touch)
+            multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidEnd: touch)
+        }
     }
     
 }

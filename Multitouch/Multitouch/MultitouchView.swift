@@ -11,7 +11,9 @@ import MultitouchGestureRecognizer
 
 @IBDesignable class MultitouchView: UIView {
     
-    private let touchRadius: CGFloat = 44.0
+    private let touchRadius: CGFloat = 40.0
+    
+    private let centroidRadius: CGFloat = 10.0
     
     private var multitouchGestureRecognizer: MultitouchGestureRecognizer? {
         didSet {
