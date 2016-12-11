@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6598B6D11DFCF22D002A1236 /* MultitouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6598B6D01DFCF22D002A1236 /* MultitouchView.swift */; };
 		65FAFC151DFCEB08004AB149 /* MultitouchAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FAFC0E1DFCEB08004AB149 /* MultitouchAppDelegate.swift */; };
 		65FAFC161DFCEB08004AB149 /* Multitouch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FAFC0F1DFCEB08004AB149 /* Multitouch.storyboard */; };
 		65FAFC171DFCEB08004AB149 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65FAFC111DFCEB08004AB149 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		03A6802C00BC1DFF21125B58 /* Pods-Multitouch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Multitouch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Multitouch/Pods-Multitouch.release.xcconfig"; sourceTree = "<group>"; };
+		6598B6D01DFCF22D002A1236 /* MultitouchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultitouchView.swift; sourceTree = "<group>"; };
 		65FAFBF91DFCEA97004AB149 /* Multitouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Multitouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65FAFC0E1DFCEB08004AB149 /* MultitouchAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultitouchAppDelegate.swift; sourceTree = "<group>"; };
 		65FAFC0F1DFCEB08004AB149 /* Multitouch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Multitouch.storyboard; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				65FAFC0F1DFCEB08004AB149 /* Multitouch.storyboard */,
 				65FAFC0E1DFCEB08004AB149 /* MultitouchAppDelegate.swift */,
 				65FAFC141DFCEB08004AB149 /* MultitouchViewController.swift */,
+				6598B6D01DFCF22D002A1236 /* MultitouchView.swift */,
 				65FAFC101DFCEB08004AB149 /* Resources */,
 			);
 			path = Multitouch;
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65FAFC1A1DFCEB08004AB149 /* MultitouchViewController.swift in Sources */,
+				6598B6D11DFCF22D002A1236 /* MultitouchView.swift in Sources */,
 				65FAFC151DFCEB08004AB149 /* MultitouchAppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,6 +251,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -297,6 +302,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -326,6 +332,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C8361E23E8E065AE36E64769 /* Pods-Multitouch.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = SP382Y6YUY;
@@ -343,6 +350,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 03A6802C00BC1DFF21125B58 /* Pods-Multitouch.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = SP382Y6YUY;

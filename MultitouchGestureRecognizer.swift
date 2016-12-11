@@ -42,8 +42,8 @@ open class MultitouchGestureRecognizer: UIGestureRecognizer {
     /// The touch management mode.
     public var mode: Mode = .stack
     
-    /// The maximum number of touches allowed in the stack/queue. Defaults to `Int.max`.
-    public var count: Int = .max {
+    /// The maximum number of touches allowed in the stack/queue. Defaults to `0`, signifying unlimited touches.
+    public var count: Int = 0 {
         didSet {
             // TODO: Remove extra touches if the size decreases
         }
@@ -162,7 +162,8 @@ open class MultitouchGestureRecognizer: UIGestureRecognizer {
     // MARK: - Single touches
     
     private func start(_ touch: UITouch) {
-        guard touches.count < count else {
+        // TODO: Break this out into a method
+        guard touches.count < count || count == 0 else {
             if let firstTouch = touches.first, mode == .queue {
                 end(firstTouch)
                 start(touch)
@@ -172,26 +173,22 @@ open class MultitouchGestureRecognizer: UIGestureRecognizer {
     
         touches.append(touch)
         multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidBegin: touch)
-        print("START", touch.identifier, touches.map { $0.identifier })
     }
     
     private func move(_ touch: UITouch) {
-        if touches.contains(touch) {
-            multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidMove: touch)
-            print("MOVE", touch.identifier, touches.map { $0.identifier })
-        }
+        // TODO: Something here
+        
+        multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidMove: touch)
     }
     
     private func cancel(_ touch: UITouch) {
         touches.remove(touch)
         multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidCancel: touch)
-        print("CANCEL", touch.identifier, touches.map { $0.identifier })
     }
     
     private func end(_ touch: UITouch) {
         touches.remove(touch)
         multitouchDelegate?.multitouchGestureRecognizer?(self, touchDidEnd: touch)
-        print("END", touch.identifier, touches.map { $0.identifier })
     }
     
 }
