@@ -11,8 +11,9 @@ Pod::Spec.new do |s|
   s.homepage                = "https://github.com/dclelland/MultitouchGestureRecognizer"
   s.license                 = { :type => 'MIT' }
   s.author                  = { "Daniel Clelland" => "daniel.clelland@gmail.com" }
-  s.source                  = { :git => "https://github.com/dclelland/MultitouchGestureRecognizer.git", :tag => "2.0.0" }
+  s.source                  = { :git => "https://github.com/dclelland/MultitouchGestureRecognizer.git", :tag => "2.1.0" }
   s.platform                = :ios, '8.0'
+  s.swift_version           = '4.2'
   s.ios.deployment_target   = '8.0'
   s.ios.source_files        = 'MultitouchGestureRecognizer.swift'
   s.requires_arc            = true
